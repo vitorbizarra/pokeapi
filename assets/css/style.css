@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body {
+    overflow: overlay;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #e71313 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+    margin-right: 2px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #3761a8;
+}
+
+.main-content {
+    height: 100vh;
+    /* background-image: url('https://images.alphacoders.com/201/thumb-1920-201831.png'); */
+    background-image: url('https://wallpaperaccess.com/full/1794017.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    position: absolute;
+    display: flex;
+}
+
+.img-pokemon-area {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.img-pokemon-area img {
+    max-width: 256px;
+    width: 100%;
+    margin: auto;
+}
+
+.dropdown-parent-types {
+    display: none;
+}
+
+.card,
+.card-image {
+    border: 0 !important;
+    border-radius: 0.5rem !important;
+}
+
+.card-title {
+    line-height: 1.25rem !important;
+}
+
+.info-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-col p {
+    margin-bottom: 0;
+}
+
+.dropdown-item-custom {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.stats-area {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+}
+
+.stats-bar {
+    width: 100%;
+    height: 3px;
+    background-color: #ccc;
+    display: flex;
+}
+
+.stats-value {
+    position: absolute;
+    height: 3px;
+    background-color: #ef233c;
+}
+
+.stats-separators {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.stats-separators li {
+    display: inline-block;
+    height: 3px;
+    width: 3px;
+    background-color: white;
+}
+
+.stats-separators li:first-child,
+.stats-separators li:last-child {
+    background: rgba(0, 0, 0, 0);
+}
+
+.load-more-area {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+}
+
+.load-more-area button {
+    margin: auto;
+}
+
+.type-title {
+    text-transform: capitalize;
+}
+
+#loading_wrap {
+    position: fixed;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background-color: rgba(109, 213, 245, 0.95);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.loading-gif {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+
+#loading_wrap h1 {
+    margin-bottom: auto;
+}
+
+button.d-flex {
+    border-radius: 0 !important;
+}
+
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.content {
+    display: flex;
+    /* padding: 0px 40px; */
+}
+
+.col-pokemon-types {
+    padding: 0 3rem;
+    width: 25%;
+}
+
+.col-pokemon-cards {
+    padding: 0 3rem;
+    width: 75%;
+}
+
+@media (max-width: 1024px) {
+    .img-pokemon-area {
+        margin-left: 0;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .col-pokemon-types {
+        width: 100%;
+    }
+
+    .col-pokemon-cards {
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .tag,
+    .dropdown-toggle,
+    .dropdown-item-custom {
+        font-size: 12px !important;
+    }
+
+    .tag {
+        padding: .3rem 1rem !important;
+    }
+
+    .load-more-area {
+        margin: 2rem 0 1rem 0;
+    }
+
+    .loading-gif {
+        max-width: 250px;
+    }
+    /* .type-title {
+        display: none;
+    } */
+
+    .select-pokemon-types {
+        width: 100%;
+        height: 50px;
+        font-size: 16px !important;
+        display: inline !important;
+        font-weight: bold !important;
+    }
+
+    .select-pokemon-types::after {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .dropdown-parent-types{
+        display: flex;
+    }
+    .dropdown-types {
+        border: 0 !important;
+        width: 100% !important;
+        border-radius: 0 0 1rem 1rem !important;
+        overflow: hidden;
+    }
+    
+
+    .dropdown-item {
+        border: 0 !important;
+    }
+
+    .ul-pokemon-types {
+        display: none !important;
+    }
+
+    .title-area {
+        flex-direction: column;
+    }
+
+    .tag:first-child {
+        margin-left: 0;
+    }
+
+    .info-area {
+        font-size: 12px;
+    }
+
+}
+
+.ul-pokemon-types button {
+    border: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+button.grass:hover {
+    background-color: rgba(114, 184, 97, 0.1);
+    color: #73B861;
+}
+
+button.grass.list-group-item.active {
+    background-color: rgba(114, 184, 97, 0.1) !important;
+    color: #73B861 !important;
+}
+
+button.poison:hover {
+    background-color: rgba(172, 106, 202, 0.1);
+    color: #AC6ACA;
+}
+
+button.poison.list-group-item.active {
+    background-color: rgba(172, 106, 202, 0.1);
+    color: #AC6ACA;
+}
+
+button.water:hover {
+    background-color: rgba(79, 120, 190, 0.1);
+    color: #4F77BE;
+}
+
+button.water.list-group-item.active {
+    background-color: rgba(79, 120, 190, 0.1);
+    color: #4F77BE;
+}
+
+button.fire:hover {
+    background-color: rgba(233, 99, 3, 0.1);
+    color: #E96303;
+}
+
+button.fire.list-group-item.active {
+    background-color: rgba(233, 99, 3, 0.1);
+    color: #E96303;
+}
+
+button.psychic:hover {
+    background-color: rgba(235, 139, 132, 0.1);
+    color: #EB8B85;
+}
+
+button.psychic.list-group-item.active {
+    background-color: rgba(235, 139, 132, 0.1);
+    color: #EB8B85;
+}
+
+button.flying:hover {
+    background-color: rgba(117, 140, 189, 0.1);
+    color: #758CBD;
+}
+
+button.flying.list-group-item.active {
+    background-color: rgba(117, 140, 189, 0.1);
+    color: #758CBD;
+}
+
+button.ice:hover {
+    background-color: rgba(113, 186, 171, 0.1);
+    color: #71BAAC;
+}
+
+button.ice.list-group-item.active {
+    background-color: rgba(113, 186, 171, 0.1);
+    color: #71BAAC;
+}
+
+button.ground:hover {
+    background-color: rgba(206, 128, 86, 0.1);
+    color: #CE8056;
+}
+
+button.ground.list-group-item.active {
+    background-color: rgba(206, 128, 86, 0.1);
+    color: #CE8056;
+}
+
+button.rock:hover {
+    background-color: rgba(132, 190, 179, 0.1);
+    color: #84BEB3;
+}
+
+button.rock.list-group-item.active {
+    background-color: rgba(132, 190, 179, 0.1);
+    color: #84BEB3;
+}
+
+button.electric:hover {
+    background-color: rgba(245, 209, 5, 0.1);
+    color: #D4BC34;
+}
+
+button.electric.list-group-item.active {
+    background-color: rgba(245, 209, 5, 0.1);
+    color: #D4BC34;
+}
+
+button.bug:hover {
+    background-color: rgba(156, 186, 72, 0.1);
+    color: #9BBA48;
+}
+
+button.bug.list-group-item.active {
+    background-color: rgba(156, 186, 72, 0.1);
+    color: #9BBA48;
+}
+
+button.dark:hover {
+    background-color: rgba(89, 87, 97, 0.1);
+    color: #595761;
+}
+
+button.dark.list-group-item.active {
+    background-color: rgba(89, 87, 97, 0.1);
+    color: #595761;
+}
+
+button.dragon:hover {
+    background-color: rgba(44, 106, 193, 0.1);
+    color: #2C6AC1;
+}
+
+button.dragon.list-group-item.active {
+    background-color: rgba(44, 106, 193, 0.1);
+    color: #2C6AC1;
+}
+
+button.fairy:hover {
+    background-color: rgba(226, 150, 225, 0.1);
+    color: #E296E1;
+}
+
+button.fairy.list-group-item.active {
+    background-color: rgba(226, 150, 225, 0.1);
+    color: #E296E1;
+}
+
+button.fighting:hover {
+    background-color: rgba(196, 79, 99, 0.24);
+    color: #C44D61;
+}
+
+button.fighting.list-group-item.active {
+    background-color: rgba(196, 79, 99, 0.24);
+    color: #C44D61;
+}
+
+button.ghost:hover {
+    background-color: rgba(97, 110, 183, 0.1);
+    color: #616EB7;
+}
+
+button.ghost.list-group-item.active {
+    background-color: rgba(97, 110, 183, 0.1);
+    color: #616EB7;
+}
+
+button.steel:hover {
+    background-color: rgba(101, 148, 161, 0.1);
+    color: #6594A1;
+}
+
+button.steel.list-group-item.active {
+    background-color: rgba(101, 148, 161, 0.1);
+    color: #6594A1;
+}
+
+button.normal:hover {
+    background-color: rgba(144, 144, 144, 0.1);
+    color: #909090;
+}
+
+button.normal.list-group-item.active {
+    background-color: rgba(144, 144, 144, 0.1);
+    color: #909090;
+}
+
+/* Badges */
+
+.badge.grass {
+    background-color: rgba(114, 184, 97, 0.25);
+    color: #73B861;
+}
+
+.badge.poison {
+    background-color: rgba(172, 106, 202, 0.25);
+    color: #AC6ACA;
+}
+
+.badge.water {
+    background-color: rgba(79, 120, 190, 0.25);
+    color: #4F77BE;
+}
+
+.badge.fire {
+    background-color: rgba(233, 99, 3, 0.25);
+    color: #E96303;
+}
+
+.badge.psychic {
+    background-color: rgba(235, 139, 132, 0.25);
+    color: #EB8B85;
+}
+
+.badge.flying {
+    background-color: rgba(117, 140, 189, 0.25);
+    color: #758CBD;
+}
+
+.badge.ice {
+    background-color: rgba(113, 186, 171, 0.25);
+    color: #71BAAC;
+}
+
+.badge.ground {
+    background-color: rgba(206, 128, 86, 0.25);
+    color: #CE8056;
+}
+
+.badge.rock {
+    background-color: rgba(132, 190, 179, 0.25);
+    color: #84BEB3;
+}
+
+.badge.electric {
+    background-color: rgba(245, 209, 5, 0.25);
+    color: #D4BC34;
+}
+
+.badge.bug {
+    background-color: rgba(156, 186, 72, 0.25);
+    color: #9BBA48;
+}
+
+.badge.dark {
+    background-color: rgba(89, 87, 97, 0.25);
+    color: #595761;
+}
+
+.badge.dragon {
+    background-color: rgba(44, 106, 193, 0.25);
+    color: #2C6AC1;
+}
+
+.badge.fairy {
+    background-color: rgba(226, 150, 225, 0.25);
+    color: #E296E1;
+}
+
+.badge.fighting {
+    background-color: rgba(196, 79, 99, 0.24);
+    color: #C44D61;
+}
+
+.badge.ghost {
+    background-color: rgba(97, 110, 183, 0.25);
+    color: #616EB7;
+}
+
+.badge.steel {
+    background-color: rgba(101, 148, 161, 0.25);
+    color: #6594A1;
+}
+
+.badge.normal {
+    background-color: rgba(144, 144, 144, 0.25);
+    color: #909090;
+}
+
+/*Tags*/
+
+.title-area {
+    display: flex;
+}
+
+.card-title {
+    margin-right: auto;
+    margin-top: auto;
+}
+
+.ul-tags {
+    border-radius: 0 !important;
+}
+
+.tag {
+    font-weight: bold;
+    border: 0 !important;
+    margin-left: 10px;
+    font-size: 14px;
+    border-radius: 0px !important;
+}
+
+.tag.grass {
+    background-color: rgba(114, 184, 97, 0.1);
+    color: #73B861;
+}
+
+.tag.poison {
+    background-color: rgba(172, 106, 202, 0.1);
+    color: #AC6ACA;
+}
+
+.tag.water {
+    background-color: rgba(79, 120, 190, 0.1);
+    color: #4F77BE;
+}
+
+.tag.fire {
+    background-color: rgba(233, 99, 3, 0.1);
+    color: #E96303;
+}
+
+.tag.psychic {
+    background-color: rgba(235, 139, 132, 0.1);
+    color: #EB8B85;
+}
+
+.tag.flying {
+    background-color: rgba(117, 140, 189, 0.1);
+    color: #758CBD;
+}
+
+.tag.ice {
+    background-color: rgba(113, 186, 171, 0.1);
+    color: #71BAAC;
+}
+
+.tag.ground {
+    background-color: rgba(206, 128, 86, 0.1);
+    color: #CE8056;
+}
+
+.tag.rock {
+    background-color: rgba(132, 190, 179, 0.1);
+    color: #84BEB3;
+}
+
+.tag.electric {
+    background-color: rgba(245, 209, 5, 0.1);
+    color: #D4BC34;
+}
+
+.tag.bug {
+    background-color: rgba(156, 186, 72, 0.1);
+    color: #9BBA48;
+}
+
+.tag.dark {
+    background-color: rgba(89, 87, 97, 0.1);
+    color: #595761;
+}
+
+.tag.dragon {
+    background-color: rgba(44, 106, 193, 0.1);
+    color: #2C6AC1;
+}
+
+.tag.fairy {
+    background-color: rgba(226, 150, 225, 0.1);
+    color: #E296E1;
+}
+
+.tag.fighting {
+    background-color: rgba(196, 79, 99, 0.24);
+    color: #C44D61;
+}
+
+.tag.ghost {
+    background-color: rgba(97, 110, 183, 0.1);
+    color: #616EB7;
+}
+
+.tag.steel {
+    background-color: rgba(101, 148, 161, 0.1);
+    color: #6594A1;
+}
+
+.tag.normal {
+    background-color: rgba(144, 144, 144, 0.1);
+    color: #909090;
+}
+
+
+
+
+.image.grass {
+    background: rgb(144, 230, 122);
+    background: linear-gradient(180deg, rgba(144, 230, 122, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.poison {
+    background: rgb(172, 106, 202);
+    background: linear-gradient(180deg, rgba(172, 106, 202, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.water {
+    background: rgb(89, 145, 244);
+    background: linear-gradient(180deg, rgba(89, 145, 244, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.fire {
+    background: rgb(233, 99, 3);
+    background: linear-gradient(180deg, rgba(233, 99, 3, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.psychic {
+    background: rgb(255, 153, 146);
+    background: linear-gradient(180deg, rgba(255, 153, 146, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.flying {
+    background: rgb(130, 157, 214);
+    background: linear-gradient(180deg, rgba(130, 157, 214, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.ice {
+    background: rgb(154, 255, 248);
+    background: linear-gradient(180deg, rgba(154, 255, 248, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.ground {
+    background: rgb(206, 128, 86);
+    background: linear-gradient(180deg, rgba(206, 128, 86, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.rock {
+    background: rgb(132, 190, 179);
+    background: linear-gradient(180deg, rgba(132, 190, 179, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.electric {
+    background: rgb(212, 188, 52);
+    background: linear-gradient(180deg, rgba(212, 188, 52, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.bug {
+    background: rgb(155, 186, 72);
+    background: linear-gradient(180deg, rgba(155, 186, 72, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.dark {
+    background: rgb(89, 87, 97);
+    background: linear-gradient(180deg, rgba(89, 87, 97, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.dragon {
+    background: rgb(44, 106, 193);
+    background: linear-gradient(180deg, rgba(44, 106, 193, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.fairy {
+    background: rgb(226, 150, 225);
+    background: linear-gradient(180deg, rgba(226, 150, 225, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.fighting {
+    background: rgb(196, 77, 97);
+    background: linear-gradient(180deg, rgba(196, 77, 97, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.ghost {
+    background: rgb(97, 110, 183);
+    background: linear-gradient(180deg, rgba(97, 110, 183, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.steel {
+    background: rgb(101, 148, 161);
+    background: linear-gradient(180deg, rgba(101, 148, 161, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
+
+.image.normal {
+    background: rgb(144, 144, 144);
+    background: linear-gradient(180deg, rgba(144, 144, 144, 0.7) 0%, rgba(255, 255, 255, 1) 75%);
+}
